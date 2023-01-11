@@ -1,0 +1,88 @@
+Skip to content
+Product 
+Team
+Enterprise
+Explore 
+Marketplace
+Pricing 
+Search
+Sign in
+Sign up
+briancodex
+/
+react-website-v1
+Public
+Code
+Issues
+12
+Pull requests
+7
+Actions
+Projects
+Wiki
+Security
+Insights
+react-website-v1/src/components/Button.css
+@briancodex
+briancodex React Website
+Latest commit fd9baf8 on Aug 10, 2020
+ History
+ 1 contributor
+43 lines (37 sloc)  651 Bytes
+
+:root {
+  --primary: #fff;
+}
+
+.btn {
+  padding: 8px 20px;
+  border-radius: 2px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background-color: var(--primary);
+  color: #242424;
+  border: 1px solid var(--primary);
+}
+
+.btn--outline {
+  background-color: transparent;
+  color: #fff;
+  padding: 8px 20px;
+  border: 1px solid var(--primary);
+  transition: all 0.3s ease-out;
+}
+
+.btn--medium {
+  padding: 8px 20px;
+  font-size: 18px;
+}
+
+.btn--large {
+  padding: 12px 26px;
+  font-size: 20px;
+}
+
+.btn--large:hover,
+.btn--medium:hover {
+  transition: all 0.3s ease-out;
+  background: #fff;
+  color: #242424;
+  transition: 250ms;
+}
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete

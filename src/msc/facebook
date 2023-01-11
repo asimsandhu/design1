@@ -1,0 +1,400 @@
+import logo from './logo.svg';
+import  Tester from './test.js';
+import  dead from './test.js';
+import './App.css';
+import Fnc_task from './task';
+import React,{useState,useEffect} from 'react'
+import Addtask from './addtask';
+import Protect from './components/Protect';
+
+import Bnavbar from './components/Bnavbar';
+import {BrowserRouter as Router,Switch ,Route} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import { AppBar, Button, IconButton, List, Toolbar, Tooltip } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Container from '@mui/material/Container';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import LoadingButton from '@mui/lab/LoadingButton';
+import PrimarySearchAppBar from './components/Appbar';
+
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import ListSubheader from '@mui/material/ListSubheader';
+import InfoIcon from '@mui/icons-material/Info';
+
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+
+
+
+import { lightBlue } from '@mui/material/colors';
+import FolderList from './components/Leftnav';
+import CheckboxListSecondary from './components/Rightnav';
+
+
+
+
+function App() {
+  
+  const [show,setshow]=useState(true)
+  const [count,setcount]=useState('users')
+  const [items,setitems]=useState([])
+  const [newname,setnewname]=useState('')
+  const itemData = [
+    {
+      img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+      title: 'Breakfast',
+      author: '@bkristastucchio',
+      rows: 2,
+      cols: 2,
+      featured: true,
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
+      title: 'Burger',
+      author: '@rollelflex_graphy726',
+    }];
+  
+//   const [task_array,settask_array]=useState([
+
+//     {
+//     id:1,
+//     name:'tariq',
+//     school:'abc'
+//   },
+//   {
+//     id:2,
+//     name:'tpliq',
+//     school:'abzxcqwec'
+//   },
+//   {  
+//     id:3,
+//     name:'tpliq',
+//     school:'practice'
+//   },
+
+// ]) ;
+  
+//   function my_btn(e){
+//     console.log('clicked');
+    
+//   }
+//   function addtask(title){
+//     //console.log(title)
+//     const id=Math.floor(Math.random() * 10);
+//     const newTask={id,...title} 
+
+//     // console.log(...title)
+//     settask_array([...task_array,newTask])
+//   }
+//   function deleteTask(id){
+//     settask_array(task_array.filter((task)=> task.school!==id))
+//       console.log(id);
+//   }
+
+//   function showform(){
+//     setshow(!show)
+//   }
+
+//   function addname(n){
+//     console.log(n)
+//      setnewname(n)
+
+//    // const my=n;
+    
+//   }
+
+//   var name="ali";
+  
+//   // componentDidMount() {
+//   //   fetch('http//localhost:3001/users')
+//   //   .then(response => response.json())
+//   //   .then(res => {
+//   //     if(res)
+//   //     {
+//   //       console.log(res)
+//   //     }
+//   //   });
+//   // }
+//   useEffect(() => {
+//     fetch(`/users`)
+//     .then(res => res.json())
+//     .then(
+//       (result) => {
+//        console.log(result)
+//       },
+//       // Note: it's important to handle errors here
+//       // instead of a catch() block so that we don't swallow
+//       // exceptions from actual bugs in components.
+     
+//     )
+// }, []);
+ 
+
+  // useEffect(() => {
+  //   fetch(`https://jsonplaceholder.typicode.com/${count}`)
+  // .then(response => response.json())
+  // .then(json => console.log(json))
+  // }, [count]);
+  function MouseOver(event) {
+    event.target.style.background = 'grey';
+  };
+  function MouseOut(event){
+    event.target.style.background="";
+  };
+  return (
+    
+    <>
+    <AppBar>
+      
+         <PrimarySearchAppBar />
+      
+    </AppBar>
+   
+    
+
+    <Container maxWidth="sm" style={{ position: 'absolute',background:'#ECF3FF',    width: '600px',
+    right: '416px'}}>
+     <List container spacing={4} justify="center">
+
+<List >
+       <Grid container spacing={3} justify="center">
+       
+      <Tooltip title="John">
+      <Grid item>
+          
+          <img className='cap'
+            src={`https://images.unsplash.com/photo-1551963831-b3b1ca40c98e`}  onMouseOver={MouseOver}
+            onMouseOut={MouseOut} style={{height:225 ,width:120,background:'#f4f8f9' , borderRadius: '25px'}} />
+           
+            
+           
+        </Grid >
+        </Tooltip>
+        <Tooltip title="Gujrat">
+
+        <Grid item>
+          <img className='cap'
+          onMouseOver={MouseOver}
+          onMouseOut={MouseOut}  src={`https://scontent.fisb1-2.fna.fbcdn.net/v/t39.30808-6/290984679_5389426834505034_8109387334869348651_n.jpg?stp=dst-jpg_s280x280&_nc_cat=108&ccb=1-7&_nc_sid=365331&_nc_eui2=AeEKcI76vZ3QEg6igiPSGbPnPjsaAgWzhwo-OxoCBbOHCqaKbV5McTK0MAiDjtuM6MdlHqx5OJ5cX7Hwj_NWXU4W&_nc_ohc=0TW_uM86_L4AX8BP8tY&_nc_ht=scontent.fisb1-2.fna&oh=00_AT9XJhmgjckvfSgkkGC5_55WiPfHMegMFkbhZOmr35Dusg&oe=62C002E5`} style={{height:225 ,width:120,background:'#f4f8f9' , borderRadius: '25px'}} />
+        </Grid >
+
+        </Tooltip>
+        <Tooltip title="Imran khan">
+        <Grid item>
+          <img className='cap'
+           onMouseOver={MouseOver}
+           onMouseOut={MouseOut} src={`https://scontent.fisb1-2.fna.fbcdn.net/v/t39.30808-6/290752861_5590002907701102_3634230634149240186_n.jpg?stp=dst-jpg_p118x118&_nc_cat=109&ccb=1-7&_nc_sid=365331&_nc_eui2=AeHIR60Qh-M4pQVnzyuf7ck4cvJTXhSmqtRy8lNeFKaq1LakvC5u69hyLyx_4tOWH83F6x7ik9PBYm_KZfrRp6Cy&_nc_ohc=cdDCzjT16sUAX-t231z&_nc_ht=scontent.fisb1-2.fna&oh=00_AT9Cz6XHp-wjd5vHuN0Ka-eEDi_MzbS5FDyJhD3WwBofgA&oe=62C0F7F3`} style={{height:225 ,width:120,background:'#f4f8f9' , borderRadius: '25px'}} />
+        </Grid >
+        </Tooltip>
+        <Tooltip title="Tariq Islam">
+        <Grid item>
+          <img className='cap'
+           onMouseOver={MouseOver}
+           onMouseOut={MouseOut}  src={`https://scontent.fisb1-2.fna.fbcdn.net/v/t51.36329-10/290815895_452678979530041_4745591049027259854_n.jpg?stp=dst-jpg_s280x280&_nc_cat=105&ccb=1-7&_nc_sid=ad6a45&_nc_eui2=AeGRe0StahOjwVfGg2RkL8ghezBUaHYDAS57MFRodgMBLpsruJMfZWTNzjh_a1-Z4do4gVh_dc9E3ssSz-ok9PuS&_nc_ohc=EMG2nofDFjwAX8Y8ELD&_nc_ht=scontent.fisb1-2.fna&oh=00_AT-N3EV2ML3l_IeFGEhCmaMUjWbhv2ljwqH4UPPlyPwS_g&oe=62C1C0F2`} style={{height:225 ,width:120,background:'#f4f8f9' , borderRadius: '25px'}} />
+           <button className='zindex'><i className='fa fa-arrow-right'></i> </button>
+        </Grid >
+        </Tooltip>
+        </Grid>
+</List>
+<List >
+<Card sx={{ maxWidth: 700 }} style={{height:'350px' ,width:'100%',background:lightBlue}} className='cap'>
+      <CardMedia 
+        component="img"
+        height="240"
+        image="https://i.pinimg.com/originals/9e/3e/94/9e3e94fef549e2ef4c2b56c844084a6d.jpg"
+        alt="green iguana"
+      />
+      <CardContent >
+        <Typography gutterBottom variant="h5" component="div">
+          Lizard
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Lizards are a widespread group of squamate reptiles, with over 6,000
+          species, ranging across all continents except Antarctica
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Share</Button>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+    </Card>
+</List>
+<List >
+<Card sx={{ maxWidth: 600 }} style={{height:'350px' ,width:'100%',background:lightBlue}} className='cap'>
+      <CardMedia
+        component="img"
+        height="240"
+        image="https://i.pinimg.com/236x/6a/88/32/6a8832d29a911b320f9c68af86f8e134.jpg"
+        alt="green iguana"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled i
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Share</Button>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+    </Card>
+</List>
+<List >
+    <Card sx={{ maxWidth: 600 }} style={{height:'350px' ,width:'100%',background:lightBlue}} className='cap'>
+      <CardMedia
+        component="img"
+        height="240"
+        image="https://i.pinimg.com/236x/16/8b/25/168b2511854457810e49072ae7ebed49--cupcake-tumblr-cake-batter.jpg"
+        alt="green iguana"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          PAkmemes
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        isitiendum. Because he will ab hold, uniess but through concer, and also of those who resist. Now a pure snore disturbeded sum dust. He ejjnoyes, in
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Share</Button>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+    </Card>
+</List>
+<List >
+<Card sx={{ maxWidth: 600 }} style={{height:'350px' ,width:'100%',background:lightBlue}} className='cap'>
+      <CardMedia
+        component="img"
+        height="240"
+        image="https://i.pinimg.com/originals/9e/3e/94/9e3e94fef549e2ef4c2b56c844084a6d.jpg"
+        alt="green iguana"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          EYES
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        isitiendum. Because he will ab hold, uniess but through concer, and also of those who resist. Now a pure snore disturbeded sum dust. He ejjnoyes, in
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Share</Button>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+    </Card>
+</List>
+<List >
+  <Paper style={{height:'350px' ,width:'100%',background:lightBlue}}/>
+</List>
+</List>
+    </Container>
+    <Container maxWidth="sm"       style={{    position: 'absolute',
+    right: '1067px',
+    background: 'lightblue',
+    width: '350px'
+
+}} >
+    
+    <div class="spinner-grow" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+
+<FolderList />
+    
+   
+     
+
+      </Container>
+<Container maxWidth="sm"       style={{    position: 'absolute',
+    right: '4px',
+    background: 'orange',
+    width:'350px'
+}}  >
+    
+    <div class="spinner-grow" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<CheckboxListSecondary />
+    
+      <Grid container spacing={3} justify="center">
+        <Grid item>
+          <Paper style={{height:75 ,width:50,background:'lightblue'}}/>
+        </Grid >
+        <Grid item>
+          <Paper style={{height:75 ,width:50,background:'lightblue'}}/>
+        </Grid>
+        <Grid item>
+          <Paper style={{height:75 ,width:50,background:'lightblue'}}/>
+        </Grid>
+        <Grid item>
+          <Paper style={{height:75 ,width:50,background:'lightblue'}}/>
+        </Grid>
+        <Grid item>
+          <Paper style={{height:75 ,width:50,background:'lightblue'}}/>
+        </Grid>
+     
+    </Grid>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path='/truck'  />
+        </Switch>
+
+        
+      </Router>
+
+      </Container>
+      {/* {!newname && <Protect  myname={addname} name="john" /> }
+
+      {newname && <h1> my name is  {newname}</h1> } */}
+      
+      {
+      /* <p>You clicked {count} timess</p>
+      <button onClick={() => setcount('users')}>
+        pages
+      </button>
+      <button onClick={() => setcount('posts')}>
+        posts
+      </button>
+      <button onClick={() => setcount('comments')}>
+        comments
+      </button>
+
+      <button color='green' value='asd' onClick={showform} />
+      <Tester title='qwerty' /> 
+        {show &&<Addtask onAdd={addtask}/> } 
+      <Fnc_task  task_array={task_array}  onDelete={deleteTask}/>
+     
+    
+        <button onClick={my_btn}
+        
+         className='btn'>login</button>
+      <h1>hey world </h1>
+      <p>this is a p tag  {name} your age is   {250 +12}</p> */}
+     {/* <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>*/}
+    </>
+  );
+}
+
+export default App;

@@ -1,0 +1,16 @@
+.app{
+    text-align: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    
+}
+
+.txt{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+}

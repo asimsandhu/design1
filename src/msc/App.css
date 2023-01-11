@@ -1,0 +1,33 @@
+.middle{
+    /* font-family: 'Montserrat' !important; */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 56px;
+    padding-block: 30px;
+}
+.btn{
+    color: white !important;
+    background: #18A0FB !important;
+    border-radius: 6px;
+    width: 192px;
+    height: 52px;
+}
+.headings{
+    /* font-family: 'Montserrat' !important;  */
+}
+.learnMore{
+    width: 130px;
+    border-radius: 6px;
+    /* font-family: 'Montserrat' !important; */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.015em;
+    color: #18A0FB !important;
+    text-transform: capitalize !important;
+
+}
